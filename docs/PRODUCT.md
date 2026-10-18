@@ -17,7 +17,7 @@ Help developers understand unfamiliar public GitHub repositories, identify how t
 2. View repository metadata and documentation.
 3. Explore important files and directories.
 4. Review detected setup instructions and project scripts.
-5. Browse open issues and contribution guidelines.
+5. Review contribution guidance.
 6. Follow source links to verify findings and continue work on GitHub.
 
 ## MVP scope
@@ -36,11 +36,9 @@ Help developers understand unfamiliar public GitHub repositories, identify how t
 - Link findings to original source files.
 - Distinguish detected facts from inferred recommendations.
 
-### Issues
-- Browse open issues and labels.
-- Filter and sort using supported GitHub API capabilities.
-- Link to canonical GitHub issue pages.
-- Avoid unsupported claims that an issue is beginner-friendly.
+### Current exclusions
+- Issue browsing is not implemented in v0.2.
+- Private repositories, OAuth, saved workspaces, and AI explanations are not implemented.
 
 ### Quality
 - Responsive, accessible interface.

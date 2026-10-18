@@ -1,40 +1,21 @@
-# RepoCompass
+# Pharos
 
-**Understand repositories. Find your next step.**
+**Navigate any codebase.**
 
-RepoCompass helps developers explore unfamiliar public GitHub repositories, discover setup instructions, inspect project structure, and find contribution opportunities.
+Pharos analyzes public GitHub repositories to surface metadata, README content, manifests, scripts, configuration, and useful starting points. Findings link to their source files. Recommendations are labeled separately from detected facts. Repository commands are never executed.
 
-> Status: Early development — foundation scaffold.
+## Run locally
 
-## Planned features
-
-- Repository overview and README
-- Source-linked project analysis
-- Setup commands and package scripts detected from repository files
-- Open issue browsing
-- Clear handling for missing data, network failures, and API rate limits
-- Optional AI explanations in a later release
-
-## Tech stack
-
-- React + TypeScript + Vite
-- GitHub REST API
-- Vitest + React Testing Library
-- GitHub Actions
-- Vercel deployment target
-
-## Getting started
-
-Requirements: Node.js 20.19+ or 22.12+, and npm.
+Requirements: Node.js 20.19+ or 22.12+, and npm. No environment variables or GitHub token are required.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite.
+Open Vite's local URL. For production use `npm run build` and `npm run preview`.
 
-## Quality checks
+## Checks
 
 ```bash
 npm run lint
@@ -43,18 +24,10 @@ npm run test
 npm run build
 ```
 
-## Project documentation
+## Analysis and limitations
 
-- [Product specification](docs/PRODUCT.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Roadmap](docs/ROADMAP.md)
-- [Security policy](docs/SECURITY.md)
-- [Contributing](CONTRIBUTING.md)
+The browser validates an HTTPS `github.com/{owner}/{repository}` URL, then calls GitHub's public REST API for metadata, the recursive default-branch tree, README, and relevant files. GitHub's unauthenticated API rate limit applies; results can be partial when requests fail or a tree is truncated. The README is displayed as escaped plain text, never HTML or interpreted Markdown. Only public repositories are supported. There is no OAuth, backend, paid AI service, or required environment variable. Analysis is heuristic and does not prove suggested commands work.
 
-## Project status
-
-This scaffold establishes the development foundation. GitHub API integration, repository analysis, issue browsing, and production UI will be implemented in subsequent milestones.
-
-## License
+See [Architecture](docs/ARCHITECTURE.md), [Product](docs/PRODUCT.md), [Roadmap](docs/ROADMAP.md), [Security](docs/SECURITY.md), and [Contributing](CONTRIBUTING.md).
 
 MIT. See [LICENSE](LICENSE).

@@ -1,19 +1,16 @@
 # Architecture
 
-## Initial approach
+## Current implementation
 
 Start with a frontend-first React + TypeScript + Vite application. Use public GitHub REST API endpoints and keep API access separate from UI components.
 
-Add server-side functionality only when justified by caching, API protection, or optional AI features. Never place secrets in client-side code.
+The React interface calls the public GitHub REST API directly. There is no server, authentication, token, or required environment configuration. GitHub's unauthenticated API limits therefore apply.
 
 ## Proposed modules
 
 - `src/app/` — application shell and routing
 - `src/components/` — shared UI components
-- `src/features/repository/` — repository lookup and overview
-- `src/features/setup-guide/` — setup analysis and instructions
-- `src/features/issues/` — issue browsing
-- `src/features/workspace/` — future saved repositories and notes
+- `src/app/` — application shell and repository results UI
 - `src/lib/github/` — GitHub API client
 - `src/analyzers/` — deterministic file analyzers
 - `src/types/` — shared domain types
@@ -29,7 +26,7 @@ Introduce modules when their functionality is implemented; avoid empty abstracti
 4. Attach source URLs and evidence to analysis results.
 5. Handle missing, unsupported, malformed, and incomplete data explicitly.
 6. Treat README and repository content as untrusted input.
-7. Keep optional AI explanations behind a replaceable service interface.
+7. Do not execute commands from analyzed repositories.
 8. Avoid unnecessary dependencies and infrastructure.
 
 ## Analysis evidence

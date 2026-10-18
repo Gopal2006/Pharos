@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-RepoCompass is in early development. Security fixes will be applied to the latest development version.
+Pharos is in early development. Security fixes will be applied to the latest development version.
 
 ## Reporting a vulnerability
 
